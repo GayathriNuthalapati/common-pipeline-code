@@ -61,8 +61,8 @@ jobs:
           --settings common/.github/workflows/maven/settings.xml
           -DskipMunitTests
           -Dbusiness.group.id="${{ secrets.BUSINESS_GROUP_ID }}" 
-          -Dca.client.id="${{ secrets.CA_EXCHANGE_CLIENT_ID }}" \
-          -Dca.client.secret="${{ secrets.CA_EXCHANGE_CLIENT_SECRET }}" \
+          -Dca.client.id="${{ secrets.CA_EXCHANGE_CLIENT_ID }}" 
+          -Dca.client.secret="${{ secrets.CA_EXCHANGE_CLIENT_SECRET }}" 
 
       - name: Stamp artifact file name with commit hash
         run: |
