@@ -60,10 +60,9 @@ jobs:
           mvn clean deploy
           --settings common/.github/workflows/maven/settings.xml
           -DskipMunitTests
-          -Dbusiness.group.id="${{ vars.BUSINESS_GROUP_ID }}"
-        env:
-          CA_CLIENT_ID: ${{ secrets.CA_CLIENT_ID }}
-          CA_CLIENT_SECRET: ${{ secrets.CA_CLIENT_SECRET }}
+          -Dbusiness.group.id="${{ secrets.BUSINESS_GROUP_ID }}" 
+          -Dca.client.id="${{ secrets.CA_EXCHANGE_CLIENT_ID }}" \
+          -Dca.client.secret="${{ secrets.CA_EXCHANGE_CLIENT_SECRET }}" \
 
       - name: Stamp artifact file name with commit hash
         run: |
@@ -116,7 +115,7 @@ jobs:
           mvn --batch-mode mule:deploy \
            --settings common/.github/workflows/maven/settings.xml \
            -Dmule.artifact="$artifactName" \
-           -Dbusiness.group.id="${{ vars.BUSINESS_GROUP_ID }}" \
+           -Dbusiness.group.id="${{ secrets.BUSINESS_GROUP_ID }}" \
            -Dca.client.id="${{ secrets.CA_CLIENT_ID }}" \
            -Dca.client.secret="${{ secrets.CA_CLIENT_SECRET }}" \
            -Dch.environment="${{ secrets.ANYPOINT_ENVIRONMENT }}" \
