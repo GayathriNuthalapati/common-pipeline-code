@@ -31,7 +31,7 @@ jobs:
       - name: Checkout common-pipeline (for maven/settings.xml)
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/common-pipeline
+          repository: ${{ github.repository_owner }}/common-pipeline-code
           ref: ${{ inputs.common-ref }}
           path: common
           token: ${{ secrets.COMMON_REPO_TOKEN || github.token }}
@@ -90,7 +90,7 @@ jobs:
       - name: Checkout common-pipeline (for maven/settings.xml)
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/common-pipeline
+          repository: ${{ github.repository_owner }}/common-pipeline-code
           ref: ${{ inputs.common-ref }}
           path: common
           token: ${{ secrets.COMMON_REPO_TOKEN || github.token }}
